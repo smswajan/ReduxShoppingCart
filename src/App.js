@@ -5,20 +5,21 @@ import cartItems from "./cart-items";
 import { createStore } from "redux";
 import reducer from "./reducer";
 // react-redux - provider - wraps app, connect - used in components
+import { Provider } from "react-redux";
 // initial store
 const initialStore = {
     cart: cartItems,
-    total: 0,
-    amount: 0,
+    total: 162,
+    amount: 46,
 };
 // store
 const store = createStore(reducer, initialStore);
 function App() {
     return (
-        <main>
+        <Provider store={store}>
             <Navbar />
-            <CartContainer cart={cartItems} />
-        </main>
+            <CartContainer />
+        </Provider>
     );
 }
 
